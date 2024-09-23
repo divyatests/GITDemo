@@ -1,0 +1,11 @@
+
+public class AssignSeven {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.driver.chromedriver","C:\\Users\\divya.jain\\chrome-win64\\chrome-win64");
+		WebDriver driver= new ChromeDriver;
+		
+		
+	}
+
+}

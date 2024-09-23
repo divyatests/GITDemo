@@ -1,0 +1,38 @@
+package DivyaJain.SeleniumFrameworkDesign;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import DivyaJain.SeleniumFrameworkDesign.TestCompenenets.BaseTest;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.CartandCheckout;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.ConfirmationPage;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.LandingPage;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.ProductCatalouge;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.placeOrder;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ErrorValidations extends BaseTest {
+
+	@Test
+	public void StandAloneTest() throws IOException {	
+		
+			
+		 landingpage.LoginApplication("divya1707@gmail.com", "Anaiisha@123");
+		 String ErrorMessage=landingpage.getErrorMessage();
+		 Assert.assertEquals(ErrorMessage, "Incorrect email or password");
+			
+	}
+
+}

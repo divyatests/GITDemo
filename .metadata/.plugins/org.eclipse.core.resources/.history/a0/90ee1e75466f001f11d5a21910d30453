@@ -1,0 +1,38 @@
+package Test;
+
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class Day3 {
+
+	
+	@Test
+	public void demo5()
+	{
+		System.out.println("learning TestNG");
+		
+	} 
+	@Test
+	public void demo6()
+	{
+		System.out.println("learning selenium");
+		
+	}
+	@AfterTest
+	public void afterTest()
+	{
+		
+		System.out.println("after test annotation");
+		
+	}
+	@AfterSuite(groups= {"Smoke"})
+	public void demo9()
+	{
+		System.out.println("Printign after suite");
+		
+	}
+	
+	
+}

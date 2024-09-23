@@ -1,0 +1,18 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AssignSeven {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.driver.chromedriver","C:\\Users\\divya.jain\\chrome-win64\\chrome-win64");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		driver.findElement(By.id("checkBoxOption2")).click();
+		String optionValue= driver.findElement(By.id("checkBoxOption2")).getAccessibleName();
+		System.out.println(optionValue);
+		
+	}
+
+}

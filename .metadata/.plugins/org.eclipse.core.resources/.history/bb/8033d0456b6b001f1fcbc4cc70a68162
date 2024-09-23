@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class JavaStreamPractice {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> numbers= new ArrayList<Integer>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+		
+		
+		ArrayList<String> Names= new ArrayList<String>();
+	    Names.add("Divya");
+	    Names.add("Raj");
+	    Names.add("Nayonika");
+	    Names.add("Vishal");
+	    Names.add("Anaisha");
+	    
+	    int[] a1= {1,2,1,4,6,3,2,4,6};
+	    
+	    
+		//TO print avg of numbers
+        System.out.println("average is" + numbers.stream().mapToDouble(s->s.intValue()).average());
+				
+		
+	   //to print upper and lower case
+        
+       Names.stream().map(s->s.toUpperCase()).forEach(s->System.out.println(s));
+       Names.stream().map(s->s.toLowerCase()).forEach(s->System.out.println(s));	
+		
+		
+		//To remove all duplicate elements
+		List a2= Arrays.asList(a1);
+		
+		 System.out.println( a2.stream().distinct());
+
+	}
+
+}

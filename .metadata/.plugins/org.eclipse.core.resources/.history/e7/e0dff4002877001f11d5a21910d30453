@@ -1,0 +1,23 @@
+package Test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class ExtentReports {
+	
+	
+	
+	public void baseTest()
+	{
+		
+		WebDriver driver= new EdgeDriver();
+		 
+	 	System.setProperty("webdriver.driver.chromedriver","C:\\Users\\divya.jain\\chrome-win64\\chrome-win64");
+	 	driver.get("https://adc-rms-qat1.ttekglobal.com/");
+	 	System.out.println(driver.getTitle());
+	 	
+	
+	 	
+	}
+
+}

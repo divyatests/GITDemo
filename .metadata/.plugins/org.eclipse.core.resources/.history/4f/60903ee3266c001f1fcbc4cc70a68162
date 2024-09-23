@@ -1,0 +1,39 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
+
+public class LatestFeatures {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.driver.chromedriver", "C:\\Users\\divya.jain\\chrome-win64");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/angularpractice/");
+		
+		
+ // relative locators
+		   WebElement Name=driver.findElement(By.xpath("//div[@class='form-group']//input[@name='name']"));
+		   System.out.println(driver.findElement(with(By.tagName("label")).above(Name)).getText());
+		   
+		   WebElement date=driver.findElement(By.className("dateofBirth"));
+		   driver.findElement(with(By.tagName(null)).below(date)).click();   
+		   
+		   WebElement iceCreamLabel =driver.findElement(By.xpath("//label[text()='Check me out if you Love IceCreams!']"));
+		   driver.findElement(with(By.tagName("input")).toLeftOf(iceCreamLabel)).click();
+
+		   WebElement rdb = driver.findElement(By.id("inlineRadio1"));
+		   System.out.println(driver.findElement(with(By.tagName("label")).toRightOf(rdb)).getText());
+		
+//  multiple windows
+ // partial screenshot
+ // height and width of element
+		//  WebElement name=driver.findElement(By.className("name"));
+          System.out.println(Name.getRect().getDimension().getHeight());
+          System.out.println(Name.getRect().getDimension().getWidth());
+		
+	}
+
+
+
+}

@@ -1,0 +1,24 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LatestFeatures {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.driver.chromedriver", "C:\\Users\\divya.jain\\chrome-win64");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/angularpractice/");
+		
+		
+ // relative locators
+//  multiple windows
+ // partial screenshot
+ // height and width of element
+		  WebElement name=driver.findElement(By.className("name"));
+          System.out.println(name.getRect().getDimension().getHeight());
+          System.out.println(name.getRect().getDimension().getWidth());
+		
+	}
+
+}

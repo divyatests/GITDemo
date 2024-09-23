@@ -1,0 +1,13 @@
+package Test;
+
+public class PS {
+	
+	
+	int a;
+	public void Add(int i)
+	{
+		a=a+1;
+		
+	}
+
+}

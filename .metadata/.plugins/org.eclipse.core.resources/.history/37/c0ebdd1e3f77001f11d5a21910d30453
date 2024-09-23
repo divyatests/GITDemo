@@ -1,0 +1,12 @@
+package DivyaJain.SeleniumFrameworkDesign.TestComponents;
+
+import org.testng.ITestListener;
+import DivyaJain.SeleniumFrameworkDesign.resources.ExtentReporterNG;
+
+public class Listeners implements ITestListener{
+	
+	
+	
+	
+
+}

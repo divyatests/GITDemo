@@ -1,0 +1,67 @@
+package DivyaJain.SeleniumFrameworkDesign;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.CartandCheckout;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.LandingPage;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.ProductCatalouge;
+import DivyaJain.SeleniumFrameworkDesign.pageobjects.placeOrder;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		String item="ZARA COAT 3";
+	
+
+		LandingPage landingpage = new LandingPage(driver);
+		landingpage.goTo("https://rahulshettyacademy.com/client");
+		ProductCatalouge productCatalouge = landingpage.LoginApplication("divya1707@gmail.com", "Anaisha@123");
+		
+		List<WebElement> products = productCatalouge.getProductList();
+		CartandCheckout CartandCheckout =productCatalouge.addProductToCart(item); 
+
+
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='card-body']//b")));
+		// List<WebElement> products=driver.findElements(By.xpath("//div[@class='card-body']//b"));
+
+		// WebElement prod=products.stream().filter(Product->Product.findElement(By.xpath("//b"))
+		// .getText().equalsIgnoreCase("ZARA COAT 3")).findFirst().orElse(null);
+		
+			
+        Boolean match=CartandCheckout.toCheckIfItemAddedtoCart(item);
+		Assert.assertTrue(match);
+		placeOrder placeOrder=CartandCheckout.clickonCheckout();
+
+		
+		placeOrder.chooseCountry("India");
+		String message = driver.findElement(By.cssSelector(".hero-primary")).getText();
+		Assert.assertTrue(message.equalsIgnoreCase("Thankyou for the order."));
+		driver.close();
+
+//	WebElement prod= products.stream().filter(product->
+		// product.findElement(By.cssSelector("b")).getText().equals("ZARA COAT
+		// 3")).findFirst().orElse(null);
+
+		// prod.findElement(By.xpath("//div[@class='card-body']//button[contains(text(),'
+		// Add To Cart')]")).click();
+		// prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+
+	}
+
+}
