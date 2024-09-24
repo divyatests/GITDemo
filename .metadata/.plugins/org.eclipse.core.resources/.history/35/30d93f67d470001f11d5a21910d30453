@@ -1,8 +1,0 @@
-package DivyaJain.SeleniumFrameworkDesign;
-
-public class StandAloneTest {
-	
-	WebDriverManager.chromeDriver().setup();
-	
-
-}
